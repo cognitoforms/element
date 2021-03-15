@@ -15,7 +15,6 @@
       :name="name"
       :true-value="activeValue"
       :false-value="inactiveValue"
-      :aria-checked="checked"
       :disabled="switchDisabled"
       @keydown.enter="switchValue"
     >
