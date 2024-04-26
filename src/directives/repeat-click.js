@@ -1,4 +1,4 @@
-import { once, on } from 'element-ui/src/utils/dom';
+import { once, on } from '@cognitoforms/element-ui/src/utils/dom';
 
 function getRepeatDuration(bindingArg, vnode, defaultDuration) {
   let duration = defaultDuration;

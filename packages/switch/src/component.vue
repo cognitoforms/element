@@ -31,9 +31,9 @@
   </div>
 </template>
 <script>
-  import emitter from 'element-ui/src/mixins/emitter';
-  import Focus from 'element-ui/src/mixins/focus';
-  import Migrating from 'element-ui/src/mixins/migrating';
+  import emitter from '@cognitoforms/element-ui/src/mixins/emitter';
+  import Focus from '@cognitoforms/element-ui/src/mixins/focus';
+  import Migrating from '@cognitoforms/element-ui/src/mixins/migrating';
 
   export default {
     name: 'ElSwitch',

@@ -82,8 +82,8 @@ import CascaderPanel from '../packages/cascader-panel/index.js';
 import Avatar from '../packages/avatar/index.js';
 import Drawer from '../packages/drawer/index.js';
 import Popconfirm from '../packages/popconfirm/index.js';
-import locale from 'element-ui/src/locale';
-import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
+import locale from '@cognitoforms/element-ui/src/locale';
+import CollapseTransition from '@cognitoforms/element-ui/src/transitions/collapse-transition';
 
 const components = [
   Pagination,

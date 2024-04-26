@@ -134,9 +134,9 @@
 </template>
 
 <script type="text/babel">
-  import { getRangeHours, getRangeMinutes, modifyTime, getI18nSettings } from 'element-ui/src/utils/date-util';
-  import ElScrollbar from 'element-ui/packages/scrollbar';
-  import RepeatClick from 'element-ui/src/directives/repeat-click';
+  import { getRangeHours, getRangeMinutes, modifyTime, getI18nSettings } from '@cognitoforms/element-ui/src/utils/date-util';
+  import ElScrollbar from '@cognitoforms/element-ui/packages/scrollbar';
+  import RepeatClick from '@cognitoforms/element-ui/src/directives/repeat-click';
 
   export default {
     components: { ElScrollbar },
