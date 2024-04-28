@@ -34,6 +34,7 @@ module.exports = function(api) {
 
   const plugins = [];
   if (api.env('utils')) {
+    console.warn("BABEL ENV: utils");
     plugins.push([
       require.resolve('babel-plugin-module-resolver'), {
         root: ['element-ui'],
