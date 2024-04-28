@@ -4,37 +4,20 @@ module.exports = function(api) {
   const isTest = api.env('test');
   // Polyfilling
   const polyfillExclusions = [
-    // 'es.promise',
-    // 'es.string.*',
     'es.number.constructor',
     'es.regexp.*',
     'es.array.sort'
   ];
-
-  // const plugins = [
-  //   ['@babel/plugin-syntax-dynamic-import'],
-  //   ['@babel/plugin-proposal-decorators', { legacy: true }],
-  //   ['@babel/plugin-proposal-class-properties', { loose: true }],
-  //   ['@babel/plugin-transform-classes'],
-  //   ['@babel/plugin-proposal-object-rest-spread'],
-  //   ['@babel/plugin-proposal-export-default-from'],
-  //   ['@babel/plugin-proposal-private-methods', { loose: true }],
-  //   ['@babel/plugin-transform-private-property-in-object', { loose: true }]
-  // ];
 
   let targets;
 
   // Target node and transform dynamic imports when testing
   if (isTest) {
     targets = { node: 'current' };
-    // plugins.push('dynamic-import-node-babel-7');
   } else { targets = browserslist(null, { env: api.env() }); }
-
-  // api.cache(true);
 
   const plugins = [];
   if (api.env('utils')) {
-    console.warn("BABEL ENV: utils");
     plugins.push([
       require.resolve('babel-plugin-module-resolver'), {
         root: ['element-ui'],
