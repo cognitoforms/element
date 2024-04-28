@@ -9,7 +9,6 @@ function compile() {
   return src('./src/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(cssmin())
