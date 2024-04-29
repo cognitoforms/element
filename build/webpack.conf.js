@@ -43,8 +43,7 @@ module.exports = {
     hints: false
   },
   stats: {
-    children: true,
-    logging: 'verbose'
+    children: false
   },
   module: {
     rules: [

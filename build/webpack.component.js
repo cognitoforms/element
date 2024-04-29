@@ -6,7 +6,6 @@ const Components = require('../components.json');
 const config = require('./config');
 
 const webpackConfig = {
-  watch: false,
   mode: 'production',
   entry: Components,
   output: {
