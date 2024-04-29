@@ -20,9 +20,9 @@ module.exports = function(api) {
   if (api.env('utils')) {
     plugins.push([
       require.resolve('babel-plugin-module-resolver'), {
-        root: ['element-ui'],
+        root: ['@cognitoforms/element-ui'],
         alias: {
-          'element-ui/src': 'element-ui/lib'
+          '@cognitoforms/element-ui/src': '@cognitoforms/element-ui/lib'
         }
       }
     ]);
