@@ -24,12 +24,12 @@ module.exports = {
     modules: ['node_modules']
   },
   externals: config.externals,
-  // performance: {
-  //   hints: false
-  // },
-  // stats: {
-  //   children: false
-  // },
+  performance: {
+    hints: false
+  },
+  stats: {
+    children: false
+  },
   optimization: {
     minimize: false
   },
