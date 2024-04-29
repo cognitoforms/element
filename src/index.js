@@ -34,8 +34,6 @@ import Tooltip from '../packages/tooltip/index.js';
 import MessageBox from '../packages/message-box/index.js';
 import Breadcrumb from '../packages/breadcrumb/index.js';
 import BreadcrumbItem from '../packages/breadcrumb-item/index.js';
-import Form from '../packages/form/index.js';
-import FormItem from '../packages/form-item/index.js';
 import Tabs from '../packages/tabs/index.js';
 import TabPane from '../packages/tab-pane/index.js';
 import Tag from '../packages/tag/index.js';
@@ -82,8 +80,8 @@ import CascaderPanel from '../packages/cascader-panel/index.js';
 import Avatar from '../packages/avatar/index.js';
 import Drawer from '../packages/drawer/index.js';
 import Popconfirm from '../packages/popconfirm/index.js';
-import locale from 'element-ui/src/locale';
-import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
+import locale from '@cognitoforms/element-ui/src/locale';
+import CollapseTransition from '@cognitoforms/element-ui/src/transitions/collapse-transition';
 
 const components = [
   Pagination,
@@ -119,8 +117,6 @@ const components = [
   Tooltip,
   Breadcrumb,
   BreadcrumbItem,
-  Form,
-  FormItem,
   Tabs,
   TabPane,
   Tag,
@@ -238,8 +234,6 @@ export default {
   MessageBox,
   Breadcrumb,
   BreadcrumbItem,
-  Form,
-  FormItem,
   Tabs,
   TabPane,
   Tag,

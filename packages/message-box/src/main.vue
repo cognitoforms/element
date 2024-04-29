@@ -79,13 +79,13 @@
 </template>
 
 <script type="text/babel">
-  import Popup from 'element-ui/src/utils/popup';
-  import Locale from 'element-ui/src/mixins/locale';
-  import ElInput from 'element-ui/packages/input';
-  import ElButton from 'element-ui/packages/button';
-  import { addClass, removeClass } from 'element-ui/src/utils/dom';
-  import { t } from 'element-ui/src/locale';
-  import Dialog from 'element-ui/src/utils/aria-dialog';
+  import Popup from '@cognitoforms/element-ui/src/utils/popup';
+  import Locale from '@cognitoforms/element-ui/src/mixins/locale';
+  import ElInput from '@cognitoforms/element-ui/packages/input';
+  import ElButton from '@cognitoforms/element-ui/packages/button';
+  import { addClass, removeClass } from '@cognitoforms/element-ui/src/utils/dom';
+  import { t } from '@cognitoforms/element-ui/src/locale';
+  import Dialog from '@cognitoforms/element-ui/src/utils/aria-dialog';
 
   let messageBox;
   let typeMap = {

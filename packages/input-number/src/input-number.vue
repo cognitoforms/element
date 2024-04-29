@@ -53,10 +53,10 @@
   </div>
 </template>
 <script>
-  import ElInput from 'element-ui/packages/input';
-  import Focus from 'element-ui/src/mixins/focus';
-  import RepeatClick from 'element-ui/src/directives/repeat-click';
-  import Locale from 'element-ui/src/mixins/locale';
+  import ElInput from '@cognitoforms/element-ui/packages/input';
+  import Focus from '@cognitoforms/element-ui/src/mixins/focus';
+  import RepeatClick from '@cognitoforms/element-ui/src/directives/repeat-click';
+  import Locale from '@cognitoforms/element-ui/src/mixins/locale';
 
   function ensureMobileKeyboardOnClick(innerInput) {
     innerInput.addEventListener('click', (event) => {
