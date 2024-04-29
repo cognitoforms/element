@@ -19,9 +19,9 @@
 </template>
 
 <script type="text/babel">
-  import { formatDate, parseDate } from 'element-ui/src/utils/date-util';
-  import ElScrollbar from 'element-ui/packages/scrollbar';
-  import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
+  import { formatDate, parseDate } from '@cognitoforms/element-ui/src/utils/date-util';
+  import ElScrollbar from '@cognitoforms/element-ui/packages/scrollbar';
+  import scrollIntoView from '@cognitoforms/element-ui/src/utils/scroll-into-view';
 
   const parseTime = function(time, format) {
     if (format && format !== 'HH:mm') {
