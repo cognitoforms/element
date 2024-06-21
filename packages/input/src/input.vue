@@ -16,7 +16,7 @@
     @mouseleave="hovering = false"
   >
     <template v-if="type !== 'textarea'">
-      <!-- 前置元素 -->
+       <!-- Prepend element -->
       <div class="el-input-group__prepend" v-if="$slots.prepend">
         <slot name="prepend"></slot>
       </div>
@@ -39,7 +39,7 @@
         @change="handleChange"
         :aria-label="label"
       >
-      <!-- 前置内容 -->
+      <!-- Prefix content -->
       <span class="el-input__prefix" v-if="$slots.prefix || prefixIcon">
         <slot name="prefix"></slot>
         <i class="el-input__icon"
@@ -47,7 +47,7 @@
            :class="prefixIcon">
         </i>
       </span>
-      <!-- 后置内容 -->
+      <!-- Suffix content -->
       <span
         class="el-input__suffix"
         v-if="getSuffixVisible()">
@@ -79,7 +79,7 @@
           :class="['el-input__validateIcon', validateIcon]">
         </i>
       </span>
-      <!-- 后置元素 -->
+      <!-- Append element -->
       <div class="el-input-group__append" v-if="$slots.append">
         <slot name="append"></slot>
       </div>
@@ -138,7 +138,8 @@
         hovering: false,
         focused: false,
         isComposing: false,
-        passwordVisible: false
+        passwordVisible: false,
+        ignoreBlur: false
       };
     },
 
@@ -302,7 +303,15 @@
           }
         };
       },
+      ignoreNextBlur(state) {
+        this.ignoreBlur = state;
+      },
       handleBlur(event) {
+        if (this.ignoreBlur) {
+          this.ignoreBlur = false;
+          this.$refs.input.focus();
+          return;
+        }
         this.focused = false;
         this.$emit('blur', event);
         if (this.validateEvent) {

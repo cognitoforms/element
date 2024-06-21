@@ -18,7 +18,7 @@
       @keydown.up.native.prevent="highlight(highlightedIndex - 1)"
       @keydown.down.native.prevent="highlight(highlightedIndex + 1)"
       @keydown.enter.native="handleKeyEnter"
-      @keydown.native.tab="close"
+      @keydown.native.tab="handleKeyTab"
     >
       <template slot="prepend" v-if="$slots.prepend">
         <slot name="prepend"></slot>
@@ -131,6 +131,18 @@
       highlightFirstItem: {
         type: Boolean,
         default: false
+      },
+      fillOnSelect: {
+        type: Boolean,
+        default: true
+      },
+      blurOnSelect: {
+        type: Boolean,
+        default: true
+      },
+      tabSelectsSuggestion: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -139,7 +151,8 @@
         suggestions: [],
         loading: false,
         highlightedIndex: -1,
-        suggestionDisabled: false
+        suggestionDisabled: false,
+        handledSelection: false
       };
     },
     computed: {
@@ -189,7 +202,9 @@
       },
       handleInput(value) {
         this.$emit('input', value);
+        this.handledSelection = false;
         this.suggestionDisabled = false;
+        if (!this.blurOnSelect) { this.$refs.input.ignoreNextBlur(true); }
         if (!this.triggerOnFocus && !value) {
           this.suggestionDisabled = true;
           this.suggestions = [];
@@ -216,8 +231,20 @@
       },
       close(e) {
         this.activated = false;
+        if (!this.handledSelection && !this.blurOnSelect) {
+          this.$refs.input.blur();
+        }
+      },
+      handleKeyTab(e) {
+        if (this.tabSelectsSuggestion && this.highlightedIndex >= 0 && this.highlightedIndex < this.suggestions.length) {
+          this.select(this.suggestions[this.highlightedIndex]);
+        } else {
+          if (!this.blurOnSelect) { this.$refs.input.ignoreNextBlur(false); }
+          this.close(e);
+        }
       },
       handleKeyEnter(e) {
+        if (!this.blurOnSelect) { this.$refs.input.ignoreNextBlur(false); }
         if (this.suggestionVisible && this.highlightedIndex >= 0 && this.highlightedIndex < this.suggestions.length) {
           e.preventDefault();
           this.select(this.suggestions[this.highlightedIndex]);
@@ -230,7 +257,8 @@
         }
       },
       select(item) {
-        this.$emit('input', item[this.valueKey]);
+        this.handledSelection = true;
+        if (this.fillOnSelect) { this.$emit('input', item[this.valueKey]); }
         this.$emit('select', item);
         this.$nextTick(_ => {
           this.suggestions = [];
