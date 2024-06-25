@@ -53,7 +53,8 @@
           role="combobox"
           aria-haspopup="listbox"
           :aria-owns="id ? `${id}-listbox` : null"
-          :aria-expanded="visible ? 'true' : 'false'"	
+          :aria-expanded="visible ? 'true' : 'false'"
+          :aria-label="label"
           @focus="handleFocus"
           @blur="softFocus = false"
           @keyup="managePlaceholder"
@@ -85,6 +86,7 @@
         aria-haspopup="listbox"
         :aria-owns="id ? `${id}-listbox` : null"
         :aria-expanded="visible ? 'true' : 'false'"	
+        :aria-label="label"
         @focus="handleFocus"
         @blur="softFocus = false"
         @keyup="managePlaceholder"
@@ -117,6 +119,7 @@
       aria-haspopup="listbox"
       :aria-owns="id ? `${id}-listbox` : null"
       :aria-expanded="visible ? 'true' : 'false'"	
+      :label="label"
       :aria-activedescendant="id && hoveredOption ? `${id}-option-${hoveredOption.value}` : null"
       :size="selectSize"
       :disabled="selectDisabled"
@@ -313,6 +316,7 @@
       name: String,
       id: String,
       title: String,
+      label: String,
       value: {
         required: true
       },
