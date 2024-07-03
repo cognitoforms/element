@@ -1,6 +1,6 @@
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 const Components = require('../components.json');
 const config = require('./config');
@@ -47,12 +47,12 @@ const webpackConfig = {
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
         loader: 'url-loader',
-        query: {
+        options: {
           limit: 10000,
           name: path.posix.join('static', '[name].[hash:7].[ext]')
         }
