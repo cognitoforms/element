@@ -37,7 +37,8 @@ exports.alias = {
   packages: path.resolve(__dirname, '../packages'),
   examples: path.resolve(__dirname, '../examples'),
   'element-ui': path.resolve(__dirname, '../'),
-  '@cognitoforms/element-ui': path.resolve(__dirname, '../')
+  '@cognitoforms/element-ui': path.resolve(__dirname, '../'),
+  vue: '@vue/compat'
 };
 
 exports.vue = {
