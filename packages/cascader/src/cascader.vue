@@ -14,7 +14,7 @@
 
     <el-input
       ref="input"
-      v-model="multiple ? presentText : inputValue"
+      v-model="inputValue"
       :size="realSize"
       :placeholder="placeholder"
       :readonly="readonly"
