@@ -1,5 +1,4 @@
-const { compileTemplate } = require('@vue/component-compiler-utils');
-const compiler = require('@vue/compiler-sfc');
+const { compileTemplate } = require('@vue/compiler-sfc');
 
 function stripScript(content) {
   const result = content.match(/<(script)>([\s\S]+)<\/\1>/);
@@ -32,7 +31,7 @@ function genInlineComponentText(template, script) {
   const finalOptions = {
     source: `<div>${template}</div>`,
     filename: 'inline-component', // TODO：这里有待调整
-    compiler
+    compilerOptions: {mode: 'function'}
   };
   const compiled = compileTemplate(finalOptions);
   // tips

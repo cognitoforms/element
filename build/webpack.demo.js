@@ -54,7 +54,10 @@ const webpackConfig = {
         loader: 'vue-loader',
         options: {
           compilerOptions: {
-            preserveWhitespace: false
+            preserveWhitespace: false,
+            compatConfig: {
+              MODE: 2
+            }
           }
         }
       },
@@ -74,7 +77,10 @@ const webpackConfig = {
             options: {
               compiler: require('@vue/compiler-sfc'),
               compilerOptions: {
-                preserveWhitespace: false
+                preserveWhitespace: false,
+                compatConfig: {
+                  MODE: 2
+                }
               }
             }
           },

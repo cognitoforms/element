@@ -23,7 +23,10 @@ demoConfig.plugins = [
   new webpack.LoaderOptionsPlugin({
     vue: {
       compilerOptions: {
-        preserveWhitespace: false
+        preserveWhitespace: false,
+        compatConfig: {
+          MODE: 2
+        }
       }
     }
   }),
