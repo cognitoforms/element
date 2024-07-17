@@ -217,7 +217,7 @@ export default {
     }
   },
 
-  destroyed() {
+  unmounted() {
     const reference = this.reference;
 
     off(reference, 'click', this.doToggle);

@@ -92,7 +92,7 @@ export default {
     }
   },
 
-  destroyed() {
+  unmounted() {
     off(document, 'mouseup', this.mouseUpDocumentHandler);
   }
 };

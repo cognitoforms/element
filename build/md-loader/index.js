@@ -28,7 +28,7 @@ module.exports = function(source) {
     const script = stripScript(commentContent);
     let demoComponentContent = genInlineComponentText(html, script);
     const demoComponentName = `element-demo${id}`;
-    output.push(`<template slot="source"><${demoComponentName} /></template>`);
+    output.push(`<template #source><${demoComponentName} /></template>`);
     componenetsString += `${JSON.stringify(demoComponentName)}: ${demoComponentContent},`;
 
     // 重新计算下一次的位置
@@ -43,6 +43,7 @@ module.exports = function(source) {
   let pageScript = '';
   if (componenetsString) {
     pageScript = `<script>
+      import Vue from 'vue';
       export default {
         name: 'component-doc',
         components: {

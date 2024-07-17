@@ -306,7 +306,7 @@ export default {
     owner.store.commit('insertColumn', this.columnConfig, columnIndex, this.isSubColumn ? parent.columnConfig : null);
   },
 
-  destroyed() {
+  unmounted() {
     if (!this.$parent) return;
     const parent = this.$parent;
     this.owner.store.commit('removeColumn', this.columnConfig, this.isSubColumn ? parent.columnConfig : null);

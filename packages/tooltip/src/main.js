@@ -228,7 +228,7 @@ export default {
     this.popperVM && this.popperVM.$destroy();
   },
 
-  destroyed() {
+  unmounted() {
     const reference = this.referenceElm;
     if (reference.nodeType === 1) {
       off(reference, 'mouseenter', this.show);

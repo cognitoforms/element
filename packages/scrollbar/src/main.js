@@ -82,10 +82,10 @@ export default {
     const wrap = (
       <div
         ref="wrap"
-        style={ style }
-        onScroll={ this.handleScroll }
-        class={ [this.wrapClass, 'el-scrollbar__wrap', gutter ? '' : 'el-scrollbar__wrap--hidden-default'] }>
-        { [view] }
+        style={style}
+        onScroll={this.handleScroll}
+        class={[this.wrapClass, 'el-scrollbar__wrap', gutter ? '' : 'el-scrollbar__wrap--hidden-default']}>
+        {[view]}
       </div>
     );
     let nodes;
@@ -94,20 +94,20 @@ export default {
       nodes = ([
         wrap,
         <Bar
-          move={ this.moveX }
-          size={ this.sizeWidth }></Bar>,
+          move={this.moveX}
+          size={this.sizeWidth}></Bar>,
         <Bar
           vertical
-          move={ this.moveY }
-          size={ this.sizeHeight }></Bar>
+          move={this.moveY}
+          size={this.sizeHeight}></Bar>
       ]);
     } else {
       nodes = ([
         <div
           ref="wrap"
-          class={ [this.wrapClass, 'el-scrollbar__wrap'] }
-          style={ style }>
-          { [view] }
+          class={[this.wrapClass, 'el-scrollbar__wrap']}
+          style={style}>
+          {[view]}
         </div>
       ]);
     }
@@ -141,7 +141,7 @@ export default {
     !this.noresize && addResizeListener(this.$refs.resize, this.update);
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (this.native) return;
     !this.noresize && removeResizeListener(this.$refs.resize, this.update);
   }

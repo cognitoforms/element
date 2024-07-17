@@ -130,7 +130,7 @@
       this.$parent && this.$parent.updateItems();
     },
 
-    destroyed() {
+    unmounted() {
       this.$parent && this.$parent.updateItems();
     }
   };

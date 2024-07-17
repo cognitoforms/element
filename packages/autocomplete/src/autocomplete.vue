@@ -9,7 +9,7 @@
   >
     <el-input
       ref="input"
-      v-bind="[$props, $attrs]"
+      v-bind="{ ...$props, ...$attrs }"
       @input="handleInput"
       @change="handleChange"
       @focus="handleFocus"
