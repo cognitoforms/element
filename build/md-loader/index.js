@@ -28,13 +28,8 @@ module.exports = function (source) {
     const commentContent = content.slice(commentStart + startTagLen, commentEnd);
     let html = stripTemplate(commentContent);
     html = html.replace(/<\/?template>/g, '');
-    console.log('============');
-    console.log(html);
-    console.log('============');
     const script = stripScript(commentContent);
     let demoComponentContent = genInlineComponentText(html, script);
-    // demoComponentContent = `<div>${demoComponentContent}</div>`;
-    // demoComponentContent.replace(/<template>/g, '<div>').replace(/<\/template>/g, '</div>');
     const demoComponentName = `element-demo${id}`;
     output.push(`<template #source><${demoComponentName} /></template>`);
     componenetsString += `${JSON.stringify(demoComponentName)}: ${demoComponentContent},`;
