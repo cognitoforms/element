@@ -4,8 +4,10 @@ const {
   genInlineComponentText
 } = require('./util');
 const md = require('./config');
+// const { Template } = require('webpack');
 
-module.exports = function(source) {
+// eslint-disable-next-line space-before-function-paren
+module.exports = function (source) {
   const content = md.render(source);
 
   const startTag = '<!--element-demo:';
@@ -24,9 +26,15 @@ module.exports = function(source) {
     output.push(content.slice(start, commentStart));
 
     const commentContent = content.slice(commentStart + startTagLen, commentEnd);
-    const html = stripTemplate(commentContent);
+    let html = stripTemplate(commentContent);
+    html = html.replace(/<\/?template>/g, '');
+    console.log('============');
+    console.log(html);
+    console.log('============');
     const script = stripScript(commentContent);
     let demoComponentContent = genInlineComponentText(html, script);
+    // demoComponentContent = `<div>${demoComponentContent}</div>`;
+    // demoComponentContent.replace(/<template>/g, '<div>').replace(/<\/template>/g, '</div>');
     const demoComponentName = `element-demo${id}`;
     output.push(`<template #source><${demoComponentName} /></template>`);
     componenetsString += `${JSON.stringify(demoComponentName)}: ${demoComponentContent},`;
