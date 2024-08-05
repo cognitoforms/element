@@ -7,7 +7,7 @@
     "release": true
   },
   "hooks": {
-    "before:npm:release": "npm run dist"
+    "before:npm:release": "pnpm run dist"
   },
   "plugins": {
   }
