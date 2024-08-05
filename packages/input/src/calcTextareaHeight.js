@@ -57,10 +57,6 @@ export default function calcTextareaHeight(
   minRows = 1,
   maxRows = null
 ) {
-  if (!hiddenTextarea) {
-    hiddenTextarea = document.createElement('textarea');
-    targetElement.parentElement.appendChild(hiddenTextarea);
-  }
 
   let {
     paddingSize,
@@ -68,6 +64,11 @@ export default function calcTextareaHeight(
     boxSizing,
     contextStyle
   } = calculateNodeStyling(targetElement);
+
+  if (!hiddenTextarea) {
+    hiddenTextarea = document.createElement('textarea');
+    targetElement.parentElement.appendChild(hiddenTextarea);
+  }
 
   hiddenTextarea.setAttribute('style', `${contextStyle};${HIDDEN_STYLE}`);
   hiddenTextarea.value = targetElement.value || targetElement.placeholder || '';
